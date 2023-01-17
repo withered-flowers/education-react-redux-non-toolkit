@@ -1,36 +1,74 @@
 import { useState } from "react";
 
 const CounterPage = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState({
+    firstNumber: 0,
+    secondNumber: 0,
+  });
 
-  const counterIncrement = () => {
-    setCounter(counter + 1);
+  const counterFirstNumberIncrement = () => {
+    setCounter({
+      ...counter,
+      firstNumber: counter.firstNumber + 1,
+    });
   };
 
-  const counterDecrement = () => {
-    setCounter(counter - 1);
+  const counterSecondNumberIncrement = () => {
+    setCounter({
+      ...counter,
+      secondNumber: counter.secondNumber + 1,
+    });
+  };
+
+  const counterFirstNumberDecrement = () => {
+    setCounter({
+      ...counter,
+      firstNumber: counter.firstNumber - 1,
+    });
+  };
+
+  const counterSecondNumberDecrement = () => {
+    setCounter({
+      ...counter,
+      secondNumber: counter.secondNumber - 1,
+    });
   };
 
   const counterReset = () => {
-    setCounter(0);
+    setCounter({
+      firstNumber: 0,
+      secondNumber: 0,
+    });
   };
 
   return (
     <section class="flex flex-col gap-4 rounded bg-gray-100 p-4">
-      <p className="text-2xl font-bold">CounterPage</p>
+      <p className="text-2xl font-bold">Counter Page</p>
 
       <p className="text-xl">
-        Nilai counter sekarang adalah{" "}
-        <span className="font-semibold">{counter}</span>
+        Nilai <i>firstNumber</i> sekarang adalah{" "}
+        <span className="font-semibold">{counter.firstNumber}</span>
+      </p>
+
+      <p className="text-xl">
+        Nilai <i>secondNumber</i> sekarang adalah{" "}
+        <span className="font-semibold">{counter.secondNumber}</span>
       </p>
 
       <section className="flex flex-row gap-4">
         <button
           className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
-          onClick={counterIncrement}
+          onClick={counterFirstNumberIncrement}
         >
-          +
+          + (First)
         </button>
+        <button
+          className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
+          onClick={counterSecondNumberIncrement}
+        >
+          + (Second)
+        </button>
+
         <button
           className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
           onClick={counterReset}
@@ -39,9 +77,15 @@ const CounterPage = () => {
         </button>
         <button
           className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
-          onClick={counterDecrement}
+          onClick={counterFirstNumberDecrement}
         >
-          -
+          - (First)
+        </button>
+        <button
+          className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
+          onClick={counterSecondNumberDecrement}
+        >
+          - (Second)
         </button>
       </section>
     </section>
