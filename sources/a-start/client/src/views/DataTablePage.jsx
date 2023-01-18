@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { actionTodoSetTodos } from "../stores/actionCreator";
 
 const DataTablePage = () => {
-  const [todos, setTodos] = useState([]);
+  const { todos: todosFromRedux } = useSelector((state) => state.todos);
+  const dispatcher = useDispatch();
 
   const fetchTodos = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/todos");
     const responseJson = await response.json();
 
-    setTodos(responseJson);
+    // dispatcher({
+    //   type: "todo/setTodos",
+    //   payload: responseJson,
+    // });
+
+    dispatcher(actionTodoSetTodos(responseJson));
   };
 
   useEffect(() => {
@@ -18,7 +27,7 @@ const DataTablePage = () => {
     <section class="flex flex-col gap-4 rounded bg-gray-100 p-4">
       <p className="text-2xl font-bold">DataTable Page</p>
 
-      {todos.length > 0 && (
+      {todosFromRedux.length > 0 && (
         <table className="border-1 border border-emerald-400">
           <thead>
             <tr>
@@ -29,7 +38,7 @@ const DataTablePage = () => {
             </tr>
           </thead>
           <tbody>
-            {todos.map((todo) => (
+            {todosFromRedux.map((todo) => (
               <tr key={todo.id}>
                 <td className="border border-emerald-400 py-2 text-center">
                   {todo.id}

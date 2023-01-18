@@ -1,44 +1,96 @@
-import { useState } from "react";
+// import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+// import { COUNTER_INCREMENT_FIRSTNUMBER } from "../stores/actionType";
+import {
+  actionCounterDecrementFirstNumber,
+  actionCounterDecrementSecondNumber,
+  actionCounterIncrementFirstNumber,
+  actionCounterIncrementSecondNumber,
+  actionCounterResetNumber,
+} from "../stores/actionCreator.js";
 
 const CounterPage = () => {
-  const [counter, setCounter] = useState({
-    firstNumber: 0,
-    secondNumber: 0,
-  });
+  // useSelector adalah sebuah Hooks(fungsi)
+  // dia menerima sebuah parameter adalah suatu "CALLBACK"
+  // CALLBACK ini menerima sebuah parameter bernama "state"
+  // dan akan RETURN suatu value dari state yang terpilih
+
+  const {
+    firstNumber: firstNumberFromRedux,
+    secondNumber: secondNumberFromRedux,
+  } = useSelector((state) => state.counter);
+
+  // Hooks yang bernama useDispatch
+  const dispatcher = useDispatch();
+
+  // const [counter, setCounter] = useState({
+  //   firstNumber: 0,
+  //   secondNumber: 0,
+  // });
 
   const counterFirstNumberIncrement = () => {
-    setCounter({
-      ...counter,
-      firstNumber: counter.firstNumber + 1,
-    });
+    // setCounter({
+    //   ...counter,
+    //   firstNumber: counter.firstNumber + 1,
+    // });
+
+    // dispatcher({
+    //   type: COUNTER_INCREMENT_FIRSTNUMBER,
+    // });
+
+    dispatcher(actionCounterIncrementFirstNumber());
   };
 
   const counterSecondNumberIncrement = () => {
-    setCounter({
-      ...counter,
-      secondNumber: counter.secondNumber + 1,
-    });
+    // setCounter({
+    //   ...counter,
+    //   secondNumber: counter.secondNumber + 1,
+    // });
+
+    // dispatcher({
+    //   type: "counter/incrementSecondNumber",
+    // });
+
+    dispatcher(actionCounterIncrementSecondNumber());
   };
 
   const counterFirstNumberDecrement = () => {
-    setCounter({
-      ...counter,
-      firstNumber: counter.firstNumber - 1,
-    });
+    // setCounter({
+    //   ...counter,
+    //   firstNumber: counter.firstNumber - 1,
+    // });
+
+    // dispatcher({
+    //   type: "counter/decrementFirstNumber",
+    // });
+
+    dispatcher(actionCounterDecrementFirstNumber());
   };
 
   const counterSecondNumberDecrement = () => {
-    setCounter({
-      ...counter,
-      secondNumber: counter.secondNumber - 1,
-    });
+    // setCounter({
+    //   ...counter,
+    //   secondNumber: counter.secondNumber - 1,
+    // });
+
+    // dispatcher({
+    //   type: "counter/decrementSecondNumber",
+    // });
+
+    dispatcher(actionCounterDecrementSecondNumber());
   };
 
   const counterReset = () => {
-    setCounter({
-      firstNumber: 0,
-      secondNumber: 0,
-    });
+    // setCounter({
+    //   firstNumber: 0,
+    //   secondNumber: 0,
+    // });
+
+    // dispatcher({
+    //   type: "counter/resetNumber",
+    // });
+
+    dispatcher(actionCounterResetNumber());
   };
 
   return (
@@ -47,12 +99,14 @@ const CounterPage = () => {
 
       <p className="text-xl">
         Nilai <i>firstNumber</i> sekarang adalah{" "}
-        <span className="font-semibold">{counter.firstNumber}</span>
+        {/* <span className="font-semibold">{counter.firstNumber}</span> */}
+        <span className="font-semibold">{firstNumberFromRedux}</span>
       </p>
 
       <p className="text-xl">
         Nilai <i>secondNumber</i> sekarang adalah{" "}
-        <span className="font-semibold">{counter.secondNumber}</span>
+        {/* <span className="font-semibold">{counter.secondNumber}</span> */}
+        <span className="font-semibold">{secondNumberFromRedux}</span>
       </p>
 
       <section className="flex flex-row gap-4">
