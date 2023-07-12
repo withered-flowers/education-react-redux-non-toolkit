@@ -3,3 +3,4 @@
 // brarti ada const untuk "counter/firstNumberIncrement"
 // dan seterusnya
 export const COUNTER_FIRSTNUMBER_INCREMENT = "counter/firstNumberIncrement";
+export const COUNTER_FIRSTNUMBER_DECREMENT = "counter/firstNumberDecrement";

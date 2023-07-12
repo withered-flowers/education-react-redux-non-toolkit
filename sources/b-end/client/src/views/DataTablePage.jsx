@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { todosSetTodos as actionTodosSetTodos } from "../stores/actionCreator";
+import { todosSetTodos as actionTodosSetTodos } from "../stores/actions/actionCreator";
 
 const DataTablePage = () => {
   // const [todos, setTodos] = useState([]);

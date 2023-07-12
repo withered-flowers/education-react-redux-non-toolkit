@@ -1,7 +1,7 @@
 import { legacy_createStore as createStore, combineReducers } from "redux";
 
-import counterReducer from "../reducers/counterReducer";
-import todoReducer from "../reducers/todoReducer";
+import counterReducer from "./reducers/counterReducer";
+import todoReducer from "./reducers/todoReducer";
 
 // Nah di sini cuma menerima satu reducer, padahal kita punya 2 reducer
 // (counter dan todo), jadi bagaimana?

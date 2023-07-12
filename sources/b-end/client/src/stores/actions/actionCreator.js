@@ -1,4 +1,7 @@
-import { COUNTER_FIRSTNUMBER_INCREMENT } from "./actionType";
+import {
+  COUNTER_FIRSTNUMBER_DECREMENT,
+  COUNTER_FIRSTNUMBER_INCREMENT,
+} from "./actionType";
 
 export const counterFirstNumberIncrement = () => ({
   type: COUNTER_FIRSTNUMBER_INCREMENT,
@@ -9,7 +12,7 @@ export const counterSecondNumberIncrement = () => ({
 });
 
 export const counterFirstNumberDecrement = () => ({
-  type: "counter/firstNumberDecrement",
+  type: COUNTER_FIRSTNUMBER_DECREMENT,
 });
 
 export const counterSecondNumberDecrement = () => ({

@@ -14,7 +14,7 @@ import {
   counterFirstNumberDecrement as actionFirstNumberDecrement,
   counterSecondNumberDecrement as actionSecondNumberDecrement,
   counterResetNumber as actionResetNumber,
-} from "../stores/actionCreator";
+} from "../stores/actions/actionCreator";
 
 const CounterPage = () => {
   // Kita akan memilih (select) state dengan menggunakan useSelector
@@ -117,32 +117,32 @@ const CounterPage = () => {
 
       <section className="flex flex-row gap-4">
         <button
-          className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
+          className="rounded bg-sky-200 px-4 py-2 hover:bg-sky-400 hover:text-white"
           onClick={counterFirstNumberIncrement}
         >
           + (First)
         </button>
         <button
-          className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
+          className="rounded bg-sky-200 px-4 py-2 hover:bg-sky-400 hover:text-white"
           onClick={counterSecondNumberIncrement}
         >
           + (Second)
         </button>
 
         <button
-          className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
+          className="rounded bg-sky-200 px-4 py-2 hover:bg-sky-400 hover:text-white"
           onClick={counterReset}
         >
           RESET
         </button>
         <button
-          className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
+          className="rounded bg-sky-200 px-4 py-2 hover:bg-sky-400 hover:text-white"
           onClick={counterFirstNumberDecrement}
         >
           - (First)
         </button>
         <button
-          className="rounded bg-sky-200 py-2 px-4 hover:bg-sky-400 hover:text-white"
+          className="rounded bg-sky-200 px-4 py-2 hover:bg-sky-400 hover:text-white"
           onClick={counterSecondNumberDecrement}
         >
           - (Second)

@@ -1,4 +1,7 @@
-import { COUNTER_FIRSTNUMBER_INCREMENT } from "../stores/actionType";
+import {
+  COUNTER_FIRSTNUMBER_DECREMENT,
+  COUNTER_FIRSTNUMBER_INCREMENT,
+} from "../actions/actionType";
 
 const initialState = {
   firstNumber: 10,
@@ -30,7 +33,7 @@ const counterReducer = (state = initialState, action) => {
         firstNumber: state.firstNumber + 1,
       };
 
-    case "counter/firstNumberDecrement":
+    case COUNTER_FIRSTNUMBER_DECREMENT:
       return {
         ...state,
         firstNumber: state.firstNumber - 1,
